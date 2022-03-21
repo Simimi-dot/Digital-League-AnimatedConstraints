@@ -67,6 +67,8 @@ class ViewControllerView: UIView {
         label.layer.shadowOpacity = 0.6
         label.layer.shadowRadius = 4
         
+        
+        
         return label
     }()
     
@@ -80,6 +82,8 @@ class ViewControllerView: UIView {
         button.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         button.layer.shadowOpacity = 0.6
         button.layer.shadowRadius = 10
+        
+        button.isHidden = true
         
         return button
     }()

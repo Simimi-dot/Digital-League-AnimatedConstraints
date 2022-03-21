@@ -47,22 +47,30 @@ extension ViewController {
         customView.customViewValidateLabelTopAnchor?.constant = 0
         customView.customViewConfirButtonTopAnchor?.constant = 500
         customView.customViewLabel.textColor = .white
+        customView.confirmButton.isHidden = true
     }
     
+    
     private func isValidTrue() {
+        customView.customViewValidateLabelTopAnchor?.constant = 30
+        customView.customViewConfirButtonTopAnchor?.constant = 20
+        NSLayoutConstraint.activate(constraints)
+        
         customView.customViewValidateLabel.isHidden = false
         customView.customViewLabel.textColor = .green
-        customView.customViewValidateLabelTopAnchor?.constant = 30
-        customView.customViewConfirButtonTopAnchor?.constant = 40
+        
         customView.customViewValidateLabel.text = "Супер!"
         customView.customViewValidateLabel.textColor = .green
         customView.customView.layer.borderWidth = 2
         customView.customView.layer.borderColor = UIColor.green.cgColor
+        customView.confirmButton.isHidden = false
     }
     
     private func isValidFalse() {
         customView.customViewValidateLabelTopAnchor?.constant = 30
         customView.customViewConfirButtonTopAnchor?.constant = 500
+        NSLayoutConstraint.deactivate(constraints)
+        
         customView.customViewLabel.textColor = .red
         customView.customViewValidateLabel.isHidden = false
         customView.customViewValidateLabel.text = "В поле ввода есть ошибка"

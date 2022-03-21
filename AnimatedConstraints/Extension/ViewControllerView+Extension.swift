@@ -20,15 +20,13 @@ extension ViewControllerView {
         customView.addSubview(confirmButton)
         confirmButton.layer.addSublayer(gradientLayer)
         
-        let customViewValidateLabelTopAnchor = customViewValidateLabel.topAnchor.constraint(equalTo: customViewTextField.topAnchor)
-        let customViewConfirmButtonTopAnchor = confirmButton.topAnchor.constraint(equalTo: customViewTextField.bottomAnchor, constant: 500)
+        let customViewValidateLabelTopAnchor = customViewValidateLabel.topAnchor.constraint(equalTo: customViewTextField.topAnchor, constant: 20)
+        let customViewConfirmButtonTopAnchor = confirmButton.topAnchor.constraint(equalTo: customViewValidateLabel.bottomAnchor, constant: 500)
         
         NSLayoutConstraint.activate([
-            customView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            customView.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            customView.heightAnchor.constraint(equalToConstant: 200),
-            customView.widthAnchor.constraint(equalToConstant: 300),
-            
+            customView.topAnchor.constraint(equalTo: self.topAnchor, constant: 250),
+            customView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+            customView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             
             customViewLabel.topAnchor.constraint(equalTo: customView.topAnchor, constant: 20),
             customViewLabel.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 20),
@@ -41,12 +39,12 @@ extension ViewControllerView {
             customViewValidateLabelTopAnchor,
             customViewValidateLabel.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 20),
             customViewValidateLabel.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -20),
+            customViewValidateLabel.bottomAnchor.constraint(lessThanOrEqualTo: customView.bottomAnchor, constant: -20),
             
             customViewConfirmButtonTopAnchor,
             confirmButton.leadingAnchor.constraint(equalTo: customView.leadingAnchor, constant: 20),
             confirmButton.trailingAnchor.constraint(equalTo: customView.trailingAnchor, constant: -20),
             confirmButton.heightAnchor.constraint(equalToConstant: 50)
-            
         ])
         
         self.customViewValidateLabelTopAnchor = customViewValidateLabelTopAnchor
